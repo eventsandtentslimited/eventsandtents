@@ -184,7 +184,7 @@
   });
   // ---- EmailJS ----
   // Paste your EmailJS Public Key (Account > General) below.
-  var EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+  var EMAILJS_PUBLIC_KEY = '7QIs9bxjH90kwWBHX';
   var EMAILJS_SERVICE_ID = 'service_t9vdob3';
   var EMAILJS_TEMPLATE_ID = 'template_o2g6tpp';
 

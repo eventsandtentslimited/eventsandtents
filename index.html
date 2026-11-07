@@ -12,6 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preload" as="image" href="images/hero-sm.webp" media="(max-width:768px)">
+  <link rel="preload" as="image" href="images/hero.webp" media="(min-width:769px)">
   <link href="css/style.css" rel="stylesheet">
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0">
@@ -32,6 +34,8 @@
           <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" class="btn btn-brand">Get A Quote</a>
@@ -41,7 +45,7 @@
 
   <!-- ========== HERO ========== -->
   <header class="hero" id="home">
-    <div class="hero-bg" style="background-image:url('images/img1.jpg')"></div>
+    <div class="hero-bg"><picture><source media="(max-width:768px)" srcset="images/hero-sm.webp"><img src="images/hero.webp" width="1600" height="1068" alt="" fetchpriority="high" decoding="async"></picture></div>
     <div class="hero-overlay"></div>
     <div class="sparkles" id="sparkles" aria-hidden="true"></div>
     <div class="container hero-content">
@@ -69,10 +73,10 @@
   <!-- ========== ABOUT ========== -->
   <section class="section section-cream" id="about">
     <div class="container">
-      <div class="row align-items-center g-5">
+      <div class="row align-items-center g-4 g-lg-5">
         <div class="col-lg-6 order-lg-2 reveal">
           <div class="photo-frame">
-            <img src="images/corporate.jpg" alt="Corporate event set-up with floral centrepieces and stage lighting" loading="lazy">
+            <img src="images/corporate.webp" width="736" height="981" alt="Corporate event set-up with floral centrepieces and stage lighting" loading="lazy">
             <span class="frame-badge"><i class="bi bi-arrow-up-right"></i></span>
           </div>
         </div>
@@ -127,7 +131,7 @@
         <p class="services-intro">From first concept to final guest, one accountable team for every layer of your event.</p>
       </div>
 
-      <div class="row gx-5 gy-5">
+      <div class="row gx-lg-5 gy-5">
         <div class="col-lg-6 reveal">
           <div class="service">
             <div class="service-icon"><i class="bi bi-calendar-check"></i></div>
@@ -187,7 +191,7 @@
       <div class="offer-band reveal">
         <div class="row align-items-center g-4">
           <div class="col-lg-5">
-            <img src="images/flyer.jpg" class="img-fluid rounded-4 shadow-lg offer-img" alt="Events & Tents Limited services flyer" loading="lazy">
+            <img src="images/flyer.webp" width="800" height="930" class="img-fluid rounded-4 shadow-lg offer-img" alt="Events & Tents Limited services flyer" loading="lazy">
           </div>
           <div class="col-lg-7">
             <span class="section-tag light">What we coordinate</span>
@@ -212,11 +216,11 @@
         <h2 class="section-title">Events we have brought to life</h2>
       </div>
       <div class="row g-3 gallery-grid">
-        <div class="col-6 col-lg-4 reveal"><a href="#" class="g-item tall" data-img="images/tent-interior.jpg" data-cap="Marquee interior with gold-trimmed chairs and floral centrepieces"><img src="images/tent-interior.jpg" alt="Marquee interior" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
-        <div class="col-6 col-lg-4 reveal"><a href="#" class="g-item" data-img="images/marquee.jpg" data-cap="Draped pagoda marquee tents on the lawn"><img src="images/marquee.jpg" alt="Pagoda marquee tents" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
-        <div class="col-6 col-lg-4 reveal"><a href="#" class="g-item" data-img="images/img1.jpg" data-cap="Emerald table with white floral runners"><img src="images/img1.jpg" alt="Emerald table setting with white flowers" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
-        <div class="col-6 col-lg-4 reveal"><a href="#" class="g-item" data-img="images/corporate.jpg" data-cap="Corporate dinner with stage and lighting"><img src="images/corporate.jpg" alt="Corporate event" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
-        <div class="col-6 col-lg-8 reveal"><a href="#" class="g-item wide" data-img="images/team.jpg" data-cap="Our crew preparing a reception"><img src="images/team.jpg" alt="Events & Tents crew setting up a reception" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
+        <div class="col-6 col-lg-4 reveal"><a href="#" class="g-item tall" data-img="images/tent-interior.webp" data-cap="Marquee interior with gold-trimmed chairs and floral centrepieces"><img src="images/tent-interior-sm.webp" width="640" height="639" alt="Marquee interior" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
+        <div class="col-6 col-lg-4 reveal"><a href="#" class="g-item" data-img="images/marquee.webp" data-cap="Draped pagoda marquee tents on the lawn"><img src="images/marquee-sm.webp" width="640" height="640" alt="Pagoda marquee tents" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
+        <div class="col-6 col-lg-4 reveal"><a href="#" class="g-item" data-img="images/img1.webp" data-cap="Emerald table with white floral runners"><img src="images/img1-sm.webp" width="640" height="427" alt="Emerald table setting with white flowers" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
+        <div class="col-6 col-lg-4 reveal"><a href="#" class="g-item" data-img="images/corporate.webp" data-cap="Corporate dinner with stage and lighting"><img src="images/corporate-sm.webp" width="640" height="853" alt="Corporate event" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
+        <div class="col-12 col-lg-8 reveal"><a href="#" class="g-item wide" data-img="images/team.webp" data-cap="Our crew preparing a reception"><img src="images/team-sm.webp" width="640" height="512" alt="Events & Tents crew setting up a reception" loading="lazy"><span><i class="bi bi-arrows-fullscreen"></i></span></a></div>
       </div>
     </div>
   </section>
@@ -224,7 +228,7 @@
   <!-- ========== GOALS ========== -->
   <section class="section section-green" id="goals">
     <div class="container">
-      <div class="row align-items-center g-5">
+      <div class="row align-items-center g-4 g-lg-5">
         <div class="col-lg-6 reveal">
           <span class="section-tag light">Brand Foundation</span>
           <h2 class="section-title light">Brand Goals</h2>
@@ -241,7 +245,7 @@
           <div class="goal-visual">
             <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
             <span class="orbit"><i></i></span>
-            <img src="images/goal.png" class="goal-img" alt="GOAL with a dart in the bullseye" loading="lazy">
+            <img src="images/goal.webp" width="900" height="450" class="goal-img" alt="GOAL with a dart in the bullseye" loading="lazy">
             <div class="goal-badges" aria-hidden="true">
               <span><i class="bi bi-trophy"></i>Premium</span>
               <span><i class="bi bi-patch-check"></i>Trusted</span>
@@ -256,7 +260,7 @@
   <!-- ========== VALUES + AUDIENCE ========== -->
   <section class="section section-cream" id="values">
     <div class="container">
-      <div class="row align-items-center g-5 mb-6">
+      <div class="row align-items-center g-4 g-lg-5 mb-6">
         <div class="col-lg-5 reveal">
           <span class="section-tag">Brand Values</span>
           <h2 class="section-title">The principles behind every event</h2>
@@ -270,7 +274,7 @@
         </div>
         <div class="col-lg-7 reveal">
           <div class="photo-frame">
-            <img src="images/team.jpg" alt="Events & Tents crew styling a reception table" loading="lazy">
+            <img src="images/team.webp" width="1000" height="800" alt="Events & Tents crew styling a reception table" loading="lazy">
             <span class="frame-badge"><i class="bi bi-people"></i></span>
           </div>
         </div>
@@ -318,10 +322,10 @@
   <!-- ========== FOUNDER ========== -->
   <section class="section section-cream" id="team">
     <div class="container">
-      <div class="row align-items-center g-5">
+      <div class="row align-items-center g-4 g-lg-5">
         <div class="col-lg-5 reveal">
           <div class="photo-frame portrait">
-            <img src="images/ceo.jpg" alt="Ayang Ogbe, Founder and CEO of Events & Tents Limited" loading="lazy">
+            <img src="images/ceo.webp" width="719" height="1080" alt="Ayang Ogbe, Founder and CEO of Events & Tents Limited" loading="lazy">
           </div>
         </div>
         <div class="col-lg-7 reveal">
@@ -342,7 +346,7 @@
 
   <!-- ========== CONTACT ========== -->
   <section class="section section-green contact" id="contact">
-    <div class="contact-bg" style="background-image:url('images/contact.jpg')"></div>
+    <div class="contact-bg" style="background-image:url('images/contact.webp')"></div>
     <div class="container position-relative">
       <div class="text-center mb-5 reveal">
         <span class="section-tag light">Contact Details</span>

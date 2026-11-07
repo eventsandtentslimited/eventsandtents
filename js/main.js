@@ -95,6 +95,10 @@
     lbCap.textContent = item.dataset.cap;
     lbCount.textContent = (current + 1) + ' / ' + gItems.length;
     if (dir) lbImg.classList.add(dir > 0 ? 'slide-next' : 'slide-prev');
+    // warm the cache for neighbouring photos so Next/Previous feel instant
+    [current + 1, current - 1].forEach(function (n) {
+      var im = new Image(); im.src = gItems[(n + gItems.length) % gItems.length].dataset.img;
+    });
   }
   gItems.forEach(function (item, idx) {
     item.addEventListener('click', function (e) {
@@ -180,7 +184,7 @@
   });
   // ---- EmailJS ----
   // Paste your EmailJS Public Key (Account > General) below.
-  var EMAILJS_PUBLIC_KEY = '7QIs9bxjH90kwWBHX';
+  var EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
   var EMAILJS_SERVICE_ID = 'service_t9vdob3';
   var EMAILJS_TEMPLATE_ID = 'template_o2g6tpp';
 

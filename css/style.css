@@ -15,7 +15,7 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.75;overflow-x:hidden}
-img{max-width:100%}
+img{max-width:100%;height:auto}
 a{text-decoration:none}
 
 /* ---------- Brand lockup ---------- */
@@ -51,7 +51,8 @@ a{text-decoration:none}
 /* ---------- Hero ---------- */
 /* Hero fits exactly in one viewport: nav height is reserved at the top */
 .hero{position:relative;height:100vh;height:100svh;min-height:560px;max-height:900px;display:flex;align-items:center;color:#fff;padding:5.5rem 0 1.5rem;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);animation:slowzoom 22s ease-in-out infinite alternate}
+.hero-bg{position:absolute;inset:0;transform:scale(1.05);animation:slowzoom 22s ease-in-out infinite alternate;will-change:transform}
+.hero-bg picture,.hero-bg img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
 @keyframes slowzoom{to{transform:scale(1.15)}}
 .hero-overlay{position:absolute;inset:0;background:
   linear-gradient(90deg,rgba(0,28,10,.95) 0%,rgba(0,35,13,.78) 45%,rgba(0,35,13,.35) 100%),
@@ -430,3 +431,65 @@ a{text-decoration:none}
 /* reCAPTCHA */
 .recaptcha-wrap{min-height:78px;max-width:100%;overflow:hidden;border-radius:.5rem}
 .recaptcha-wrap .g-recaptcha,.recaptcha-wrap>div{max-width:100%}
+
+/* =====================================================
+   RESPONSIVE HARDENING (phones & tablets)
+   ===================================================== */
+html,body{max-width:100%;overflow-x:clip}
+section,header,footer{max-width:100%}
+.section{overflow-x:clip}
+h1,h2,h3,p,a,li{overflow-wrap:break-word}
+.container{padding-left:1rem;padding-right:1rem}
+
+@media(max-width:991.98px){
+  .section{padding:4.2rem 0}
+  /* side-slide reveals would push the page wider than the screen: slide up instead */
+  .reveal.reveal-left:not(.in),.reveal.reveal-right:not(.in){transform:translateY(30px)}
+  /* hover-card padding trick uses negative margins; not needed without hover on touch layouts */
+  .service{margin:0;padding:0}
+  .service:hover{background:none;box-shadow:none;transform:none}
+  /* keep the gold offset frame inside the screen */
+  .photo-frame{margin:0 12px 12px 0}
+  .photo-frame::before{inset:12px -12px -12px 12px}
+  .goal-visual{max-width:460px}
+  .offer-band{padding:1.6rem;border-radius:1.5rem;margin-top:4rem}
+  .offer-img{max-height:340px}
+  .quote-form{padding:1.4rem}
+  .hero::after{width:320px;height:320px;right:-140px}
+  #goals::after{font-size:clamp(6rem,24vw,12rem)}
+}
+@media(max-width:575.98px){
+  .section{padding:3.4rem 0}
+  .section-title{font-size:clamp(1.7rem,7.2vw,2.2rem)}
+  .vm-card{padding:1.6rem}.vm-card p{font-size:1.1rem}
+  .vm-card h3{font-size:1.6rem}
+  .aud-card{font-size:1.2rem;padding:1.1rem}
+  .gallery-grid .g-item{height:170px}
+  .gallery-grid{--bs-gutter-x:.75rem;--bs-gutter-y:.75rem}
+  .service-title{font-size:.8rem;padding:.8rem 1rem}
+  .offer-title{font-size:1.25rem}
+  .contact-list li{font-size:.88rem;word-break:break-word}
+  .contact-list li>span{width:38px;height:38px}
+  .stat-num,.stat-icon{font-size:1.9rem}
+  .stat-label{font-size:.66rem}
+  .client-note{display:none}
+  .wa-float,.to-top{right:.8rem;width:48px;height:48px;font-size:1.4rem}
+  .to-top{bottom:4.6rem}
+  .client{font-size:1rem}
+  .lb-prev{left:6px}.lb-next{right:6px}
+  #lightboxImg{height:min(46vh,340px)}
+  .recaptcha-wrap{transform-origin:left top}
+  .btn-brand,.btn-outline-light{flex:1 1 100%}
+}
+@media(max-width:360px){
+  .recaptcha-wrap{transform:scale(.9)}
+  .hero-title{font-size:2rem}
+  .eyebrow{letter-spacing:.15em;font-size:.62rem}
+}
+/* tablet: two-column services & gallery stay tidy */
+@media(min-width:576px) and (max-width:991.98px){
+  .gallery-grid .g-item{height:230px}
+  .service-icon{width:96px;height:96px;font-size:2.4rem}
+}
+/* wide screens: keep the hero from stretching too far */
+@media(min-width:1600px){.container{max-width:1380px}}

@@ -184,7 +184,7 @@
   });
   // ---- EmailJS ----
   // Paste your EmailJS Public Key (Account > General) below.
-  var EMAILJS_PUBLIC_KEY = '7QIs9bxjH90kwWBHX';
+  var EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
   var EMAILJS_SERVICE_ID = 'service_t9vdob3';
   var EMAILJS_TEMPLATE_ID = 'template_o2g6tpp';
 
@@ -263,7 +263,7 @@
   // Hero parallax
   var heroBg = document.querySelector('.hero-bg');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (heroBg && !reduce) {
+  if (heroBg) {
     window.addEventListener('scroll', function () {
       var y = window.scrollY;
       if (y < window.innerHeight) heroBg.style.marginTop = (y * 0.25) + 'px';
@@ -296,7 +296,7 @@
   }
 
   // 3D tilt on cards
-  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+  if (window.matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.vm-card, .aud-card, .stat, .offer-band .offer-img').forEach(function (card) {
       card.addEventListener('mousemove', function (e) {
         var r = card.getBoundingClientRect();

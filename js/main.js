@@ -1,6 +1,10 @@
 (function () {
   'use strict';
 
+  function track(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params || {});
+  }
+
   var nav = document.getElementById('mainNav');
   var toTop = document.getElementById('toTop');
 
@@ -179,6 +183,7 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!valid()) return;
+    track('generate_lead', { method: 'whatsapp', event_type: document.getElementById('qType').value });
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(buildMessage()), '_blank', 'noopener');
     resetCaptcha();
   });
@@ -223,6 +228,7 @@
       message: v('qMsg') || 'No additional details.',
       'g-recaptcha-response': captchaToken()
     }, { publicKey: EMAILJS_PUBLIC_KEY }).then(function () {
+      track('generate_lead', { method: 'email' });
       setStatus('success', 'Thank you! Your request has been sent. We will get back to you shortly.');
       form.reset();
       form.classList.remove('was-validated');

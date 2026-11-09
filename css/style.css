@@ -325,10 +325,6 @@ a {
     font-size: .72rem
   }
 
-  .strip-item br {
-    display: none
-  }
-
   .strip-item:nth-child(2) {
     border: 0
   }
@@ -2403,3 +2399,39 @@ li {
   }
 }
 
+/* Animations are always on: many devices ship with "reduce motion" enabled by default, which hid every effect. */
+
+/* Mobile / tablet menu: solid panel + high-contrast Get A Quote button */
+@media(max-width:991.98px) {
+  .navbar-collapse {
+    background: var(--green-900) !important;
+    border: 1px solid rgba(229, 201, 130, .35);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .45)
+  }
+
+  .navbar-collapse .btn-brand {
+    display: block;
+    width: 100%;
+    margin-top: .8rem;
+    padding: .9rem 1.2rem;
+    background: var(--cream);
+    color: var(--green-900);
+    border: 2px solid var(--gold);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .35)
+  }
+
+  .navbar-collapse .btn-brand::after {
+    display: none
+  }
+
+  .navbar-collapse .btn-brand:hover,
+  .navbar-collapse .btn-brand:focus,
+  .navbar-collapse .btn-brand:active {
+    background: var(--gold);
+    color: var(--green-900);
+    border-color: var(--gold)
+  }
+}

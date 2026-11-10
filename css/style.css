@@ -150,7 +150,7 @@ a {
 }
 
 .btn-underline:hover {
-  color: var(--gold-soft);
+  color: #cc5500;
   padding-right: .6rem
 }
 
@@ -174,7 +174,7 @@ a {
 }
 
 .play-link:hover {
-  color: var(--gold-soft)
+  color: #cc5500
 }
 
 .play-link:hover .play-circle {
@@ -836,7 +836,7 @@ a {
 }
 
 .aud-card:hover i {
-  background: var(--gold)
+  background: #cc5500
 }
 
 /* ---------- Clients ---------- */
@@ -2403,9 +2403,7 @@ li {
   }
 }
 
-/* Animations are always on: many devices ship with "reduce motion" enabled by default, which hid every effect. */
 
-/* ---------- Navbar "Get A Quote": gold, burnt orange on hover (all screen sizes) ---------- */
 .navbar .btn-brand {
   background: var(--gold);
   color: var(--green-900);

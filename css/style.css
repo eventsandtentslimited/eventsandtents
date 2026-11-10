@@ -280,6 +280,45 @@ a {
   padding: .9rem .6rem
 }
 
+.scroll-down {
+  position: absolute;
+  z-index: 2;
+  bottom: .75rem;
+  left: 50%;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  color: var(--gold-soft);
+  font-size: 1.5rem;
+  transform: translateX(-50%);
+  animation: scroll-down-bounce 1.8s ease-in-out infinite
+}
+
+.scroll-down:hover,
+.scroll-down:focus-visible {
+  color: #fff;
+  animation-play-state: paused
+}
+
+.scroll-down:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 2px;
+  border-radius: 50%
+}
+
+@keyframes scroll-down-bounce {
+
+  0%,
+  100% {
+    translate: 0 0
+  }
+
+  50% {
+    translate: 0 6px
+  }
+}
+
 .strip-item {
   display: flex;
   flex-direction: column;
@@ -345,6 +384,12 @@ a {
 
   .hero-strip {
     margin-top: 1rem
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .scroll-down {
+    animation: none
   }
 }
 
@@ -539,7 +584,7 @@ a {
   margin: 0
 }
 
-/* ---------- Services (list-with-icons layout) ---------- */
+/* ---------- Services  ---------- */
 .section-services {
   background: var(--cream);
   background-image: linear-gradient(135deg, transparent 0 55%, rgba(0, 51, 15, .035) 55% 100%), linear-gradient(225deg, rgba(0, 51, 15, .035) 0 22%, transparent 22%)
@@ -1232,7 +1277,8 @@ a {
 }
 
 .wa-float,
-.to-top {
+.to-top,
+.to-down {
   position: fixed;
   right: 1.2rem;
   z-index: 1030;
@@ -1272,6 +1318,27 @@ a {
   pointer-events: auto
 }
 
+/* Scroll-down button: sits above the back-to-top button */
+.to-down {
+  bottom: 9.2rem;
+  background: var(--gold);
+  color: var(--green-900);
+  font-size: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s
+}
+
+.to-down.show {
+  opacity: 1;
+  pointer-events: auto
+}
+
+.to-down:hover,
+.to-top:hover {
+  background: var(--gold-soft)
+}
+
 /* ---------- Reveal animation ---------- */
 .reveal {
   opacity: 0;
@@ -1298,7 +1365,7 @@ a {
   box-shadow: 0 0 12px var(--gold)
 }
 
-/* Direction reveals */
+
 .reveal.reveal-left:not(.in) {
   transform: translateX(-60px)
 }
@@ -1311,7 +1378,7 @@ a {
   transform: scale(.88)
 }
 
-/* Hero: sparkles, glow, entrance */
+
 .sparkles {
   position: absolute;
   inset: 0;
@@ -2331,7 +2398,8 @@ li {
   }
 
   .wa-float,
-  .to-top {
+  .to-top,
+  .to-down {
     right: .8rem;
     width: 48px;
     height: 48px;
@@ -2340,6 +2408,10 @@ li {
 
   .to-top {
     bottom: 4.6rem
+  }
+
+  .to-down {
+    bottom: 8rem
   }
 
   .client {
@@ -2383,7 +2455,7 @@ li {
   }
 }
 
-/* tablet: two-column services & gallery stay tidy */
+
 @media(min-width:576px) and (max-width:991.98px) {
   .gallery-grid .g-item {
     height: 230px
@@ -2396,7 +2468,7 @@ li {
   }
 }
 
-/* wide screens: keep the hero from stretching too far */
+
 @media(min-width:1600px) {
   .container {
     max-width: 1380px

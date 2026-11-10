@@ -7,16 +7,34 @@
 
   var nav = document.getElementById('mainNav');
   var toTop = document.getElementById('toTop');
+  var toDown = document.getElementById('toDown');
 
-  // Sticky navbar + back-to-top
+  // Sticky navbar + back-to-top + scroll-down visibility
   function onScroll() {
     var y = window.scrollY;
     nav.classList.toggle('scrolled', y > 40);
     toTop.classList.toggle('show', y > 600);
+    var atBottom = y + window.innerHeight >= document.documentElement.scrollHeight - 80;
+    toDown.classList.toggle('show', !atBottom);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
   onScroll();
   toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  // Scroll down: jump to the next section, or to the very bottom if none is left
+  toDown.addEventListener('click', function () {
+    var y = window.scrollY;
+    var blocks = document.querySelectorAll('header.hero, section.section, footer.site-footer');
+    var targetTop = null;
+    for (var i = 0; i < blocks.length; i++) {
+      var t = blocks[i].getBoundingClientRect().top + y - 70;
+      if (t > y + 20) { targetTop = t; break; }
+    }
+    var maxTop = document.documentElement.scrollHeight - window.innerHeight;
+    if (targetTop === null || targetTop > maxTop) targetTop = maxTop;
+    window.scrollTo({ top: targetTop, behavior: 'smooth' });
+  });
 
   // Close mobile menu after choosing a link
   var menu = document.getElementById('navMenu');

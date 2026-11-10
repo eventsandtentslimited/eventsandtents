@@ -2403,3 +2403,25 @@ li {
   }
 }
 
+/* Animations are always on: many devices ship with "reduce motion" enabled by default, which hid every effect. */
+
+/* ---------- Navbar "Get A Quote": gold, burnt orange on hover (all screen sizes) ---------- */
+.navbar .btn-brand {
+  background: var(--gold);
+  color: var(--green-900);
+  transition: background .25s, color .25s, transform .25s, box-shadow .25s
+}
+
+.navbar .btn-brand:hover,
+.navbar .btn-brand:focus-visible,
+.navbar .btn-brand:active {
+  background: #cc5500;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(204, 85, 0, .4)
+}
+
+@media(max-width:991.98px) {
+  .navbar .btn-brand {
+    display: inline-block
+  }
+}

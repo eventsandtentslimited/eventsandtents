@@ -1,40 +1,18 @@
 (function () {
   'use strict';
 
-  function track(name, params) {
-    if (typeof gtag === 'function') gtag('event', name, params || {});
-  }
-
   var nav = document.getElementById('mainNav');
   var toTop = document.getElementById('toTop');
-  var toDown = document.getElementById('toDown');
 
-  // Sticky navbar + back-to-top + scroll-down visibility
+  // Sticky navbar + back-to-top
   function onScroll() {
     var y = window.scrollY;
     nav.classList.toggle('scrolled', y > 40);
     toTop.classList.toggle('show', y > 600);
-    var atBottom = y + window.innerHeight >= document.documentElement.scrollHeight - 80;
-    toDown.classList.toggle('show', !atBottom);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
   onScroll();
   toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-
-  // Scroll down: jump to the next section, or to the very bottom if none is left
-  toDown.addEventListener('click', function () {
-    var y = window.scrollY;
-    var blocks = document.querySelectorAll('header.hero, section.section, footer.site-footer');
-    var targetTop = null;
-    for (var i = 0; i < blocks.length; i++) {
-      var t = blocks[i].getBoundingClientRect().top + y - 70;
-      if (t > y + 20) { targetTop = t; break; }
-    }
-    var maxTop = document.documentElement.scrollHeight - window.innerHeight;
-    if (targetTop === null || targetTop > maxTop) targetTop = maxTop;
-    window.scrollTo({ top: targetTop, behavior: 'smooth' });
-  });
 
   // Close mobile menu after choosing a link
   var menu = document.getElementById('navMenu');
@@ -145,24 +123,21 @@
     touchX = null;
   }, { passive: true });
 
-  // Quote form -> WhatsApp / Email
+  // Consultation form -> EmailJS
   var form = document.getElementById('quoteForm');
-  var WA = '2347042773259', MAIL = 'eventsandtentslimited@gmail.com';
+  var v = function (id) { return document.getElementById(id).value.trim(); };
 
-  function buildMessage() {
-    var v = function (id) { return document.getElementById(id).value.trim(); };
-    return [
-      'Hello Events & Tents Limited, I would like a quote.',
-      '',
-      'Name: ' + v('qName'),
-      'Phone: ' + v('qPhone'),
-      v('qEmail') ? 'Email: ' + v('qEmail') : '',
-      'Event type: ' + v('qType'),
-      v('qDate') ? 'Event date: ' + v('qDate') : '',
-      v('qGuests') ? 'Expected guests: ' + v('qGuests') : '',
-      v('qMsg') ? '\nDetails: ' + v('qMsg') : ''
-    ].filter(function (l, i) { return l !== '' || i === 1; }).join('\n');
+  // "Date not yet decided" disables the date picker
+  var dateEl = document.getElementById('qDate');
+  var tbdEl = document.getElementById('qDateTbd');
+  function syncDate() {
+    dateEl.disabled = tbdEl.checked;
+    if (tbdEl.checked) dateEl.value = '';
   }
+  tbdEl.addEventListener('change', syncDate);
+  form.addEventListener('reset', function () { setTimeout(syncDate, 0); });
+  function eventDate() { return tbdEl.checked ? 'Not yet decided' : (v('qDate') || 'Not specified'); }
+
   // ---- reCAPTCHA (v2 checkbox) ----
   var RECAPTCHA_SITE_KEY = '6LeJXRUuAAAAABHnbH45hETw71ZqyFKCLN4dKLZc';
   var captchaId = null;
@@ -190,7 +165,7 @@
 
   function valid() {
     form.classList.add('was-validated');
-    var fieldsOk = ['qName', 'qPhone', 'qType'].every(function (id) { return document.getElementById(id).value.trim(); });
+    var fieldsOk = ['qName', 'qPhone', 'qType', 'qFormat'].every(function (id) { return v(id); });
     var captchaOk = !!captchaToken();
     captchaErr.classList.toggle('d-none', captchaOk);
     if (!captchaOk) captchaErr.textContent = captchaId === null
@@ -198,65 +173,54 @@
       : 'Please tick "I\'m not a robot" before sending.';
     return fieldsOk && captchaOk;
   }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!valid()) return;
-    track('generate_lead', { method: 'whatsapp', event_type: document.getElementById('qType').value });
-    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(buildMessage()), '_blank', 'noopener');
-    resetCaptcha();
-  });
-  // ---- EmailJS ----
-  // Paste your EmailJS Public Key (Account > General) below.
-  var EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+
+  var EMAILJS_PUBLIC_KEY = '7QIs9bxjH90kwWBHX';
   var EMAILJS_SERVICE_ID = 'service_t9vdob3';
   var EMAILJS_TEMPLATE_ID = 'template_o2g6tpp';
 
-  var mailBtn = document.getElementById('mailBtn');
   var statusEl = document.getElementById('formStatus');
   function setStatus(type, msg) {
     statusEl.className = 'alert alert-' + type + ' py-2 mb-0 mt-1';
     statusEl.textContent = msg;
     statusEl.classList.remove('d-none');
   }
-  mailBtn.addEventListener('click', function () {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
     if (!valid()) return;
-    var v = function (id) { return document.getElementById(id).value.trim(); };
 
-    // Never fall back to the visitor's mail app: the message must go straight through EmailJS.
     if (typeof emailjs === 'undefined') {
       setStatus('danger', 'The email service could not load. Please check your connection and refresh the page.');
       return;
     }
     if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
       console.error('EmailJS public key is missing. Add it at the top of the EmailJS section in js/main.js.');
-      setStatus('danger', 'Email sending is not set up yet. Please use WhatsApp or call us.');
+      setStatus('danger', 'Booking is not set up yet. Please call us or use the WhatsApp button.');
       return;
     }
 
-    var label = mailBtn.innerHTML;
-    mailBtn.disabled = true;
-    mailBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
       from_name: v('qName'),
       phone: v('qPhone'),
-      reply_to: v('qEmail') || 'Not provided',
       event_type: v('qType'),
-      event_date: v('qDate') || 'Not specified',
-      guests: v('qGuests') || 'Not specified',
+      event_date: eventDate(),
+      consult_format: v('qFormat'),
       message: v('qMsg') || 'No additional details.',
       'g-recaptcha-response': captchaToken()
     }, { publicKey: EMAILJS_PUBLIC_KEY }).then(function () {
-      track('generate_lead', { method: 'email' });
-      setStatus('success', 'Thank you! Your request has been sent. We will get back to you shortly.');
+      setStatus('success', 'Thank you! Your consultation request has been sent. Our team will get in touch shortly.');
       form.reset();
       form.classList.remove('was-validated');
     }, function (err) {
       console.error('EmailJS error:', err);
-      setStatus('danger', 'Sorry, we could not send your request. Please try again, or use WhatsApp or call us.');
+      setStatus('danger', 'Sorry, we could not send your request. Please try again, or call us or use the WhatsApp button.');
     }).finally(function () {
       resetCaptcha();
-      mailBtn.disabled = false;
-      mailBtn.innerHTML = label;
+      btn.disabled = false;
+      btn.innerHTML = label;
     });
   });
 

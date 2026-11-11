@@ -38,7 +38,7 @@
   "logo": "https://eventsandtents.events/images/logo-champagne.svg",
   "description": "Full-service event planning, production, management, logistics and marquee tent rental company based in Abuja, Nigeria.",
   "telephone": "+2347042773259",
-  "email": "eventsandtentslimited@gmail.com",
+  "email": "info@eventsandtents.events",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "9 Thaba Tseka Street, Off Adetokunbo Ademola Crescent, Wuse II",
@@ -142,7 +142,7 @@
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn-brand">Get A Quote</a>
+        <a href="#contacts" class="btn btn-brand">Book Consultation</a>
       </div>
     </div>
   </nav>
@@ -165,7 +165,7 @@
           <p class="hero-lead reveal">Weddings &amp; celebrations, corporate events, conferences, social &amp; community
             events, coordinated end-to-end with premium production and seamless service.</p>
           <div class="d-flex flex-wrap align-items-center gap-4 reveal">
-            <a href="#contact" class="btn-underline">Book Consultation</a>
+            <a href="#contacts" class="btn-underline">Book Consultation</a>
             <a href="#gallery" class="play-link"><span class="play-circle"><i class="bi bi-play-fill"></i></span>
               Explore Events</a>
           </div>
@@ -525,74 +525,129 @@
       </div>
       <div class="row g-4">
         <div class="col-lg-5 reveal">
-          <ul class="contact-list">
-            <li><span><i class="bi bi-telephone"></i></span>
-              <div><a href="tel:+2348033351512">+234 803 335 1512</a></div>
-            </li>
-            <li><span><i class="bi bi-whatsapp" aria-hidden="true"></i></span><a href="https://wa.me/2347042773259"
-                target="_blank" rel="me noopener" title="Chat with Events &amp; Tents Limited on WhatsApp"
-                aria-label="Chat with Events &amp; Tents Limited on WhatsApp">+234 704 277 3259</a></li>
-            <li><span><i class="bi bi-envelope"></i></span><a
-                href="mailto:eventsandtentslimited@gmail.com">eventsandtentslimited@gmail.com</a></li>
-            <li><span><i class="bi bi-facebook" aria-hidden="true"></i></span><a
-                href="https://www.facebook.com/share/1U7Xzbv3pY/" target="_blank" rel="me noopener"
-                title="Events &amp; Tents Limited on Facebook"
-                aria-label="Events &amp; Tents Limited on Facebook">Events &amp; Tents </a></li>
-            <li><span><i class="bi bi-instagram" aria-hidden="true"></i></span><a
-                href="https://www.instagram.com/_eventsandtents" target="_blank" rel="me noopener"
-                title="Events &amp; Tents Limited on Instagram"
-                aria-label="Events &amp; Tents Limited on Instagram">_eventsandtents </a></li>
-            <li><span><i class="bi bi-tiktok" aria-hidden="true"></i></span><a
-                href="https://www.tiktok.com/@eventsandtents" target="_blank" rel="me noopener"
-                title="Events &amp; Tents Limited on TikTok"
-                aria-label="Events &amp; Tents Limited on TikTok">eventsandtents</a></li>
-            <li><span><i class="bi bi-geo-alt"></i></span>9 Thaba Tseka Street Off Adetokunbo Ademola Crescent, Wuse II,
-              Abuja FCT</li>
-          </ul>
+
+          <!-- Group 1: Reach us -->
+          <div class="contact-group">
+            <h4 class="contact-group-title">Reach us</h4>
+            <ul class="contact-list">
+              <li>
+                <span><i class="bi bi-telephone"></i></span>
+                <div><a href="tel:+2348033351512">+234 803 335 1512</a></div>
+              </li>
+              <li>
+                <span><i class="bi bi-envelope"></i></span>
+                <a href="mailto:info@eventsandtents.events">info@eventsandtents.events</a>
+              </li>
+              <li>
+                <span><i class="bi bi-geo-alt"></i></span>
+                9 Thaba Tseka Street Off Adetokunbo Ademola Crescent, Wuse II, Abuja FCT
+              </li>
+            </ul>
+          </div>
+
+          <!-- Group 2: Follow us -->
+          <div class="contact-group">
+            <h4 class="contact-group-title">Follow us</h4>
+            <ul class="contact-list">
+              <li>
+                <span><i class="bi bi-facebook" aria-hidden="true"></i></span>
+                <a href="https://www.facebook.com/share/1U7Xzbv3pY/" target="_blank" rel="me noopener"
+                  title="Events &amp; Tents Limited on Facebook"
+                  aria-label="Events &amp; Tents Limited on Facebook">Events &amp; Tents</a>
+              </li>
+              <li>
+                <span><i class="bi bi-instagram" aria-hidden="true"></i></span>
+                <a href="https://www.instagram.com/_eventsandtents" target="_blank" rel="me noopener"
+                  title="Events &amp; Tents Limited on Instagram"
+                  aria-label="Events &amp; Tents Limited on Instagram">_eventsandtents</a>
+              </li>
+              <li>
+                <span><i class="bi bi-tiktok" aria-hidden="true"></i></span>
+                <a href="https://www.tiktok.com/@eventsandtents" target="_blank" rel="me noopener"
+                  title="Events &amp; Tents Limited on TikTok"
+                  aria-label="Events &amp; Tents Limited on TikTok">eventsandtents</a>
+              </li>
+             
+            </ul>
+          </div>
+
         </div>
-        <div class="col-lg-7 reveal">
+        <div class="col-lg-7 reveal" id="contacts">
           <form class="quote-form" id="quoteForm" novalidate>
-            <h3>Request a Quote</h3>
+            <h3>Book a Consultation</h3>
+            <p class="quote-intro">Let's talk about your upcoming event. Share a few details below, and our team will
+              get in
+              touch to arrange a consultation.</p>
+
             <div class="row g-3">
-              <div class="col-md-6"><label for="qName" class="form-label">Full name</label><input type="text"
-                  class="form-control" id="qName" required>
+
+              <!-- 1. Full Name -->
+              <div class="col-md-6">
+                <label for="qName" class="form-label">Full name</label>
+                <input type="text" class="form-control" id="qName" autocomplete="name" required>
                 <div class="invalid-feedback">Please enter your name.</div>
               </div>
-              <div class="col-md-6"><label for="qPhone" class="form-label">Phone / WhatsApp</label><input type="tel"
-                  class="form-control" id="qPhone" required>
+
+              <!-- 2. Phone Number -->
+              <div class="col-md-6">
+                <label for="qPhone" class="form-label">Phone number</label>
+                <input type="tel" class="form-control" id="qPhone" autocomplete="tel" required>
                 <div class="invalid-feedback">Please enter a phone number.</div>
               </div>
-              <div class="col-md-6"><label for="qEmail" class="form-label">Email</label><input type="email"
-                  class="form-control" id="qEmail"></div>
-              <div class="col-md-6"><label for="qType" class="form-label">Event type</label>
+
+              <!-- 3. Event type -->
+              <div class="col-12">
+                <label for="qType" class="form-label">What type of event are you planning?</label>
                 <select class="form-select" id="qType" required>
                   <option value="">Select...</option>
-                  <option>Wedding / Celebration</option>
+                  <option>Wedding</option>
                   <option>Corporate Event</option>
-                  <option>Conference</option>
-                  <option>Social / Community Event</option>
-                  <option>Marquee Tent Rental</option>
+                  <option>Birthday Celebration</option>
+                  <option>Private / Social Event</option>
                   <option>Other</option>
                 </select>
                 <div class="invalid-feedback">Please choose an event type.</div>
               </div>
-              <div class="col-md-6"><label for="qDate" class="form-label">Event date</label><input type="date"
-                  class="form-control" id="qDate"></div>
-              <div class="col-md-6"><label for="qGuests" class="form-label">Expected guests</label><input type="number"
-                  min="1" class="form-control" id="qGuests"></div>
-              <div class="col-12"><label for="qMsg" class="form-label">Tell us about your event</label><textarea
-                  class="form-control" id="qMsg" rows="4"></textarea></div>
+
+              <!-- 4. Event date -->
+              <div class="col-md-6">
+                <label for="qDate" class="form-label">When is your event?</label>
+                <input type="date" class="form-control" id="qDate" aria-label="Select a date">
+                <div class="form-check mt-2">
+                  <input class="form-check-input" type="checkbox" id="qDateTbd">
+                  <label class="form-check-label" for="qDateTbd">Date not yet decided</label>
+                </div>
+              </div>
+
+              <!-- 5. Consultation format -->
+              <div class="col-md-6">
+                <label for="qFormat" class="form-label">Preferred consultation format</label>
+                <select class="form-select" id="qFormat" required>
+                  <option value="">Select...</option>
+                  <option>Phone Call</option>
+                  <option>Video Call</option>
+                  <option>In-Person Meeting</option>
+                </select>
+                <div class="invalid-feedback">Please choose a consultation format.</div>
+              </div>
+
+              <!-- 6. Notes (optional) -->
+              <div class="col-12">
+                <label for="qMsg" class="form-label">Anything else we should know? <span
+                    class="opt">(optional)</span></label>
+                <textarea class="form-control" id="qMsg" rows="4"></textarea>
+              </div>
+
               <div class="col-12">
                 <div id="recaptchaBox" class="recaptcha-wrap"></div>
                 <div id="captchaError" class="text-warning small mt-1 d-none">Please tick "I'm not a robot" before
                   sending.</div>
               </div>
-              <div class="col-12 d-flex flex-wrap gap-2">
-                <button type="submit" class="btn btn-brand"><i class="bi bi-whatsapp me-2"></i>Send via
-                  WhatsApp</button>
-                <button type="button" class="btn btn-outline-light" id="mailBtn"><i class="bi bi-envelope me-2"></i>Send
-                  via Email</button>
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-brand w-100">Book My Consultation</button>
               </div>
+
               <div class="col-12">
                 <div id="formStatus" class="alert d-none" role="status"></div>
               </div>

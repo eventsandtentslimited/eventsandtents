@@ -1208,6 +1208,31 @@ a {
   color: var(--gold-soft)
 }
 
+/* Contact groups: "Reach us" and "Follow us" */
+.contact-group+.contact-group {
+  margin-top: 1.8rem
+}
+
+.contact-group-title {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-family: var(--sans);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin: 0 0 .9rem
+}
+
+.contact-group-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(229, 201, 130, .5), transparent)
+}
+
 .quote-form {
   background: rgba(0, 20, 7, .55);
   border: 1px solid rgba(255, 255, 255, .14);

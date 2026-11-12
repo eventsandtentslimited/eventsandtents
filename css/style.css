@@ -733,6 +733,29 @@ a {
   box-shadow: 0 12px 30px rgba(0, 35, 13, .15)
 }
 
+.gallery-grid {
+  max-width: 960px;
+  margin-inline: auto
+}
+
+@media(min-width:576px) {
+  .gallery-grid {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem
+  }
+}
+
+@media(min-width:992px) {
+  .gallery-grid {
+    --bs-gutter-x: 2.25rem;
+    --bs-gutter-y: 2.25rem
+  }
+
+  .gallery-grid .g-item {
+    height: 240px
+  }
+}
+
 .g-item img {
   width: 100%;
   height: 100%;
@@ -774,77 +797,6 @@ a {
   border-radius: 1rem
 }
 
-/* ---------- Goals ---------- */
-.goal-list {
-  list-style: none;
-  padding: 0;
-  margin: 0
-}
-
-.goal-list li {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 248, 229, .18);
-  font-size: 1.05rem;
-  color: var(--cream)
-}
-
-.goal-list i {
-  flex: none;
-  margin-top: .3rem;
-  width: 26px;
-  height: 26px;
-  border-radius: .45rem;
-  background: var(--sand);
-  color: var(--green-800);
-  display: grid;
-  place-items: center;
-  font-size: .8rem
-}
-
-.goal-img {
-  width: 100%;
-  max-width: 560px;
-  mix-blend-mode: lighten;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .4));
-  animation: float 5s ease-in-out infinite
-}
-
-@keyframes float {
-  50% {
-    transform: translateY(-12px)
-  }
-}
-
-/* ---------- Values / Audience ---------- */
-.values {
-  display: grid;
-  gap: .2rem
-}
-
-.values div {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: var(--green-800);
-  padding: .85rem 0;
-  border-bottom: 1px solid rgba(0, 51, 15, .15);
-  transition: .25s
-}
-
-.values div:hover {
-  padding-left: .8rem;
-  color: var(--green-600)
-}
-
-.values i {
-  color: var(--gold);
-  font-size: 1.3rem
-}
 
 .aud-card {
   display: flex;
@@ -2414,7 +2366,7 @@ li {
 
 @media(min-width:576px) and (max-width:991.98px) {
   .gallery-grid .g-item {
-    height: 230px
+    height: 200px
   }
 
   .service-icon {

@@ -2520,3 +2520,578 @@ li {
     display: inline-block
   }
 }
+
+/* =====================================================
+   MINI-SCREEN RESPONSIVENESS (<=480px, <=360px, <=320px, landscape phones)
+   ===================================================== */
+@media(max-width:480px) {
+  .container {
+    padding-left: .9rem;
+    padding-right: .9rem
+  }
+
+  .brand-logo {
+    height: 40px
+  }
+
+  .navbar.scrolled .brand-logo {
+    height: 36px
+  }
+
+  .navbar {
+    padding: .7rem 0
+  }
+
+  .navbar-toggler {
+    font-size: 1.8rem
+  }
+
+  .navbar-collapse {
+    margin: .6rem -.4rem 0;
+    padding: .8rem 1.1rem 1.1rem
+  }
+
+  .navbar .btn-brand {
+    width: 100%;
+    text-align: center
+  }
+
+  /* Hero: let content define the height instead of clipping it */
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    padding: 5.2rem 0 4rem
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 9.5vw, 2.4rem);
+    line-height: 1.08
+  }
+
+  .hero-lead {
+    display: block;
+    font-size: .85rem;
+    line-height: 1.55
+  }
+
+  .eyebrow {
+    font-size: .62rem;
+    letter-spacing: .14em;
+    line-height: 1.5
+  }
+
+  .hero .d-flex {
+    gap: 1rem !important
+  }
+
+  .btn-underline {
+    border-bottom-width: 4px;
+    font-size: .92rem
+  }
+
+  .play-circle {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem
+  }
+
+  .hero-strip {
+    margin-top: 1.4rem;
+    padding: .6rem .4rem;
+    row-gap: .6rem
+  }
+
+  .strip-item {
+    font-size: .68rem;
+    padding: 0 .3rem;
+    gap: .4rem
+  }
+
+  .strip-item i {
+    font-size: 1.1rem
+  }
+
+  .scroll-down {
+    display: none
+  }
+
+  /* Sections */
+  .section-tag {
+    font-size: .66rem;
+    letter-spacing: .16em;
+    padding-left: 2rem
+  }
+
+  .section-tag::before {
+    width: 1.3rem
+  }
+
+  .section p {
+    font-size: .92rem
+  }
+
+  .mb-6 {
+    margin-bottom: 3rem
+  }
+
+  /* Stats */
+  .stat {
+    padding: .8rem .35rem;
+    border-radius: .8rem
+  }
+
+  .stat-num,
+  .stat-icon {
+    font-size: 1.6rem
+  }
+
+  .stat-label {
+    font-size: .6rem
+  }
+
+  /* Services */
+  .service-icon {
+    width: 76px;
+    height: 76px;
+    font-size: 1.9rem
+  }
+
+  .service-icon::after {
+    inset: -6px
+  }
+
+  .service-title {
+    display: flex;
+    width: 100%;
+    font-size: .76rem;
+    padding: .75rem .9rem;
+    line-height: 1.3
+  }
+
+  .service p {
+    font-size: .88rem
+  }
+
+  .services-intro {
+    font-size: .9rem
+  }
+
+  .offer-band {
+    padding: 1.1rem;
+    border-radius: 1.2rem;
+    margin-top: 3rem
+  }
+
+  .offer-img {
+    max-height: 280px
+  }
+
+  .offer-title {
+    font-size: 1.1rem
+  }
+
+  .chips {
+    gap: .45rem
+  }
+
+  .chips span {
+    font-size: .74rem;
+    padding: .3rem .75rem
+  }
+
+  /* Gallery */
+  .gallery-grid .g-item {
+    height: 150px;
+    border-radius: .9rem
+  }
+
+  #lightbox .modal-dialog {
+    margin: .5rem
+  }
+
+  #lightboxImg {
+    height: min(42vh, 300px)
+  }
+
+  .lb-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem
+  }
+
+  /* Goals */
+  .goal-list {
+    padding-left: 1rem
+  }
+
+  .goal-list li {
+    font-size: .88rem;
+    padding: .8rem 3rem .8rem .8rem;
+    gap: .7rem
+  }
+
+  .goal-list li::before {
+    font-size: 1.8rem;
+    right: .6rem
+  }
+
+  .goal-list i {
+    width: 22px;
+    height: 22px;
+    font-size: .7rem
+  }
+
+  .goal-visual {
+    padding: 1.5rem 0
+  }
+
+  .goal-badges span {
+    font-size: .62rem;
+    padding: .25rem .6rem
+  }
+
+  .goal-badges span:nth-child(3) {
+    right: 2%
+  }
+
+  #goals::after {
+    font-size: 5.5rem;
+    right: 0
+  }
+
+  /* Values / audience */
+  .values div {
+    font-size: 1.05rem;
+    padding: .7rem 0
+  }
+
+  .aud-card {
+    font-size: 1.1rem;
+    padding: .9rem;
+    gap: .8rem
+  }
+
+  .aud-card i {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem
+  }
+
+  /* Clients marquee */
+  .marquee .client {
+    width: 138px;
+    height: 76px;
+    padding: .35rem .5rem
+  }
+
+  .marquee .c1 {
+    font-size: 1.15rem
+  }
+
+  .marquee .c2 {
+    font-size: .9rem
+  }
+
+  .marquee .c3 {
+    font-size: .95rem
+  }
+
+  .marquee .c4 {
+    font-size: 1.35rem
+  }
+
+  .marquee .c5 {
+    font-size: 1rem
+  }
+
+  /* Founder */
+  .lead-text {
+    font-size: 1.05rem
+  }
+
+  .pill {
+    font-size: .78rem;
+    padding: .3rem .8rem
+  }
+
+  /* Contact */
+  .contact-list li {
+    padding: .55rem .7rem .55rem .55rem;
+    gap: .7rem;
+    font-size: .84rem;
+    overflow-wrap: anywhere
+  }
+
+  .contact-group-title {
+    font-size: .66rem;
+    letter-spacing: .16em
+  }
+
+  .quote-form {
+    padding: 1.1rem
+  }
+
+  .quote-form h3 {
+    font-size: 1.5rem
+  }
+
+  .quote-intro {
+    font-size: .85rem
+  }
+
+  .quote-form .form-control,
+  .quote-form .form-select {
+    font-size: 16px;
+    padding: .6rem .75rem
+  }
+
+  /* 16px stops iOS zoom */
+  .recaptcha-wrap {
+    display: flex;
+    justify-content: center
+  }
+
+  /* Footer */
+  .site-footer {
+    text-align: center;
+    font-size: .78rem
+  }
+
+  .footer-logo {
+    height: 38px
+  }
+
+  /* Floating buttons */
+  .wa-float,
+  .to-top,
+  .to-down {
+    right: .6rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem
+  }
+
+  .wa-float {
+    bottom: .8rem
+  }
+
+  .to-top {
+    bottom: 4rem
+  }
+
+  .to-down {
+    bottom: 7.2rem
+  }
+}
+
+@media(max-width:360px) {
+  .container {
+    padding-left: .75rem;
+    padding-right: .75rem
+  }
+
+  .hero-title {
+    font-size: 1.8rem
+  }
+
+  .hero-lead {
+    font-size: .8rem
+  }
+
+  .hero-strip {
+    grid-template-columns: 1fr 1fr
+  }
+
+  .strip-item {
+    font-size: .64rem
+  }
+
+  .section-title {
+    font-size: 1.55rem
+  }
+
+  .stat-num,
+  .stat-icon {
+    font-size: 1.4rem
+  }
+
+  .stat-label {
+    font-size: .56rem
+  }
+
+  .service {
+    gap: .8rem
+  }
+
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 1.6rem
+  }
+
+  .vm-card {
+    padding: 1.2rem
+  }
+
+  .vm-card h3 {
+    font-size: 1.35rem
+  }
+
+  .vm-card p {
+    font-size: 1rem
+  }
+
+  .gallery-grid .g-item {
+    height: 130px
+  }
+
+  .goal-badges {
+    display: none
+  }
+
+  .goal-visual .r1,
+  .goal-visual .r2,
+  .goal-visual .r3 {
+    width: 150px;
+    height: 150px
+  }
+
+  .marquee .client {
+    width: 120px;
+    height: 68px
+  }
+
+  .recaptcha-wrap {
+    transform: scale(.9)
+  }
+
+  .btn-brand,
+  .btn-outline-light {
+    padding: .65rem 1rem;
+    font-size: .88rem
+  }
+}
+
+@media(max-width:320px) {
+  .brand-logo {
+    height: 34px
+  }
+
+  .hero-title {
+    font-size: 1.65rem
+  }
+
+  .eyebrow {
+    font-size: .58rem;
+    letter-spacing: .1em
+  }
+
+  .hero-strip {
+    grid-template-columns: 1fr;
+    row-gap: .5rem
+  }
+
+  .strip-item {
+    border-right: 0 !important;
+    justify-content: flex-start
+  }
+
+  .section-title {
+    font-size: 1.4rem
+  }
+
+  .stat-label {
+    font-size: .52rem
+  }
+
+  .service {
+    flex-direction: column
+  }
+
+  .gallery-grid {
+    --bs-gutter-x: .5rem;
+    --bs-gutter-y: .5rem
+  }
+
+  .gallery-grid .g-item {
+    height: 115px
+  }
+
+  .goal-list li {
+    font-size: .82rem
+  }
+
+  .aud-card {
+    font-size: 1rem
+  }
+
+  .quote-form {
+    padding: .9rem
+  }
+
+  .recaptcha-wrap {
+    transform: scale(.8);
+    margin-left: -12px
+  }
+
+  .contact-list li>span {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem
+  }
+
+  .wa-float,
+  .to-top,
+  .to-down {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem
+  }
+}
+
+/* Short landscape phones */
+@media(max-height:500px) and (orientation:landscape) {
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    padding: 4.5rem 0 2rem
+  }
+
+  .hero-lead {
+    display: none
+  }
+
+  .hero-strip {
+    margin-top: .8rem
+  }
+
+  .scroll-down {
+    display: none
+  }
+
+  .section {
+    padding: 3rem 0
+  }
+
+  #lightboxImg {
+    height: 60vh
+  }
+
+  .navbar-collapse {
+    max-height: 75vh;
+    overflow-y: auto
+  }
+}
+
+/* Touch devices: no hover-dependent tilt, bigger tap targets */
+@media(hover:none) {
+
+  .nav-link,
+  .btn-brand,
+  .btn-underline,
+  .play-link {
+    min-height: 44px
+  }
+}

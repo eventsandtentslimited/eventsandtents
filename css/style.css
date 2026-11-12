@@ -1010,40 +1010,25 @@ a {
   transform: scale(1.06)
 }
 
-.marquee .c1 {
-  font-size: 1.45rem
+.marquee .client {
+  display: grid;
+  place-items: center
 }
 
-.marquee .c1 small {
-  font-size: .62rem
+.marquee .client img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 68px;
+  object-fit: contain;
+  transition: transform .3s
 }
 
-.marquee .c2 {
-  font-size: 1.1rem
-}
-
-.marquee .c2 small {
-  font-size: .5rem
-}
-
-.marquee .c3 {
-  font-size: 1.2rem
-}
-
-.marquee .c3 small {
-  font-size: .42rem
-}
-
-.marquee .c4 {
-  font-size: 1.7rem
-}
-
-.marquee .c5 {
-  font-size: 1.25rem
-}
-
-.marquee .c5 small {
-  font-size: .42rem
+.marquee .client:hover img {
+  transform: scale(1.06)
 }
 
 #clients .section-title::after {
@@ -1084,60 +1069,6 @@ a {
   font-weight: 700;
   letter-spacing: .02em;
   margin-top: .3rem
-}
-
-.c1 {
-  font-weight: 800;
-  font-size: 2rem;
-  color: #1b2e7b
-}
-
-.c1 small {
-  color: #17a53a;
-  font-size: .8rem
-}
-
-.c2 {
-  font-weight: 900;
-  font-size: 1.5rem;
-  color: #4f9a1e;
-  letter-spacing: .02em
-}
-
-.c2 small {
-  color: #4f9a1e
-}
-
-.c3 {
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: #2c4268
-}
-
-.c3 small {
-  color: #5a9873
-}
-
-.c4 {
-  font-weight: 800;
-  font-size: 2.2rem;
-  color: #5e6b72
-}
-
-.c4::before {
-  content: "✱";
-  color: #e9422a;
-  margin-right: .3rem
-}
-
-.c5 {
-  font-weight: 900;
-  font-size: 1.7rem;
-  color: #0b5546
-}
-
-.c5 small {
-  color: #222
 }
 
 /* ---------- Founder ---------- */
@@ -2785,24 +2716,8 @@ li {
     padding: .35rem .5rem
   }
 
-  .marquee .c1 {
-    font-size: 1.15rem
-  }
-
-  .marquee .c2 {
-    font-size: .9rem
-  }
-
-  .marquee .c3 {
-    font-size: .95rem
-  }
-
-  .marquee .c4 {
-    font-size: 1.35rem
-  }
-
-  .marquee .c5 {
-    font-size: 1rem
+  .marquee .client img {
+    max-height: 54px
   }
 
   /* Founder */
@@ -2960,6 +2875,10 @@ li {
   .marquee .client {
     width: 120px;
     height: 68px
+  }
+
+  .marquee .client img {
+    max-height: 48px
   }
 
   .recaptcha-wrap {

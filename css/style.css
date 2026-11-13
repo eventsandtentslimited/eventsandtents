@@ -2992,7 +2992,8 @@ li {
 }
 
 .clients-grid .client:hover {
-  transform: translateY(-6px)
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(204, 85, 0, .55), 0 0 0 2px rgba(204, 85, 0, .8)
 }
 
 .clients-grid .client img {
